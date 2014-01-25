@@ -634,7 +634,7 @@ int main(int argc, char** argv)
 	xptMiner_parseCommandline(argc, argv);
 	minerSettings.protoshareMemoryMode = commandlineInput.ptsMemoryMode;
 	printf("\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB\n");
-	printf("\xBA  xptMiner (v1.1) Fast++                          \xBA\n");
+	printf("\xBA  xptMiner (v1.2) Fast++                          \xBA\n");
 	printf("\xBA  author: jh00                                    \xBA\n");
 	printf("\xBA  modified by §§con§§		              \xBA\n");
 	printf("\xBA  http://ypool.net                                \xBA\n");
