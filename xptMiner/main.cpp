@@ -3,7 +3,7 @@
 #define MAX_TRANSACTIONS	(4096)
 
 // miner version string (for pool statistic)
-char* minerVersionString = "xptMiner 1.1";
+char* minerVersionString = "xptMiner 1.2";
 
 minerSettings_t minerSettings = {0};
 
