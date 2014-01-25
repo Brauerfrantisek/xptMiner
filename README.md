@@ -1,4 +1,4 @@
-xptMiner FAST ++
+xptMiner FAST ++  YPOOL
 ========
 
 Now Optimizated!
