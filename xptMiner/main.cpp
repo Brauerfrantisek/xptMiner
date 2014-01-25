@@ -398,7 +398,7 @@ void xptMiner_xptQueryWorkLoop()
 					// speed is represented as khash/s
 					if( passedSeconds > 5 )
 					{
-						speedRate = (double)totalCollisionCount / (double)passedSeconds / 1000.0;
+						speedRate = (double)totalCollisionCount / (double)passedSeconds / 60.0;
 					}
 					printf("kHash/s: %.2lf Shares total: %d\n", speedRate, totalShareCount);
 				}
@@ -407,7 +407,7 @@ void xptMiner_xptQueryWorkLoop()
 					// speed is represented as khash/s (in steps of 0x8000)
 					if( passedSeconds > 5 )
 					{
-						speedRate = (double)totalCollisionCount * 32768.0 / (double)passedSeconds / 1000.0;
+						speedRate = (double)totalCollisionCount * 1.0 / (double)passedSeconds / 1000.0;
 					}
 					printf("kHash/s: %.2lf Shares total: %d\n", speedRate, totalShareCount);
 				}
