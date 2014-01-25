@@ -1,4 +1,4 @@
-xptMiner
+xptMiner FAST ++
 ========
 
 Now Optimizated!
