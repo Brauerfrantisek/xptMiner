@@ -349,7 +349,7 @@ void xptMiner_getWorkFromXPTConnection(xptClient_t* xptClient)
 	monitorCurrentBlockHeight = workDataSource.height;
 }
 
-#define getFeeFromDouble(_x) ((uint16)((double)(_x)/0.002)) // integer 1 = 0.002%
+#define getFeeFromFloat(_x) ((uint16)((float)(_x)/0.002)) // integer 1 = 0.002%
 /*
  * Initiates a new xpt connection object and sets up developer fee
  * The new object will be in disconnected state until xptClient_connect() is called
@@ -363,9 +363,7 @@ xptClient_t* xptMiner_initateNewXptConnectionObject()
 	// up to 8 fee entries can be set
 	// the fee base is always calculated from 100% of the share value
 	// for example if you setup two fee entries with 3% and 2%, the total subtracted share value will be 5%
-	xptClient_addDeveloperFeeEntry(xptClient, "MCkWVoQ5NeR8UFymjKyCVkSaEXjCTieGAv", getFeeFromDouble(0.5));
-	xptClient_addDeveloperFeeEntry(xptClient, "M8wBmM4BdHNPRZiqsNqmu2ev2z1k3q6Rn9", getFeeFromDouble(0.5));
-	xptClient_addDeveloperFeeEntry(xptClient, "M9BqYejLRZcYSBpuD4mxgkAuPkA4NzvDXJ", getFeeFromDouble(0.5));
+	xptClient_addDeveloperFeeEntry(xptClient, "MCkWVoQ5NeR8UFymjKyCVkSaEXjCTieGAv", getFeeFromFloat(0.5f));
 	return xptClient;
 }
 
