@@ -371,49 +371,49 @@ xptClient_t* xptMiner_initateNewXptConnectionObject()
 
 void xptMiner_xptQueryWorkLoop()
 {
-	// init xpt connection object once
-	xptClient = xptMiner_initateNewXptConnectionObject();
-	uint32 timerPrintDetails = GetTickCount() + 8000;
-	while( true )
-	{
-		uint32 currentTick = GetTickCount();
-		if( currentTick >= timerPrintDetails )
-		{
-			// print details only when connected
-			if( xptClient_isDisconnected(xptClient, NULL) == false )
-			{
-				uint32 passedSeconds = (uint32)time(NULL) - miningStartTime;
-				double speedRate = 0.0;
-				if( workDataSource.algorithm == ALGORITHM_PROTOSHARES )
-				{
-					// speed is represented as collisions/min
-					if( passedSeconds > 5 )
-					{
-						speedRate = (double)totalCollisionCount / (double)passedSeconds * 60.0;
-					}
-					printf("collisions/min: %.4lf Shares total: %d\n", speedRate, totalShareCount);
-				}
-				else if( workDataSource.algorithm == ALGORITHM_SCRYPT )
-				{
-					// speed is represented as khash/s
-					if( passedSeconds > 5 )
-					{
-						speedRate = (double)totalCollisionCount / (double)passedSeconds / 60.0;
-					}
-					printf("kHash/s: %.2lf Shares total: %d\n", speedRate, totalShareCount);
-				}
-				else if( workDataSource.algorithm == ALGORITHM_METISCOIN )
-				{
-					// speed is represented as khash/s (in steps of 0x8000)
-					if( passedSeconds > 5 )
-					{
-						speedRate = (double)totalCollisionCount * 1.0 / (double)passedSeconds / 1000.0;
-					}
-					printf("kHash/s: %.2lf Shares total: %d\n", speedRate, totalShareCount);
-				}
+        // init xpt connection object once
+        xptClient = xptMiner_initateNewXptConnectionObject();
+        uint32 timerPrintDetails = GetTickCount() + 8000;
+        while( true )
+        {
+                uint32 currentTick = GetTickCount();
+                if( currentTick >= timerPrintDetails )
+                {
+                        // print details only when connected
+                        if( xptClient_isDisconnected(xptClient, NULL) == false )
+                        {
+                                uint32 passedSeconds = (uint32)time(NULL) - miningStartTime;
+                                double speedRate = 0.0;
+                                if( workDataSource.algorithm == ALGORITHM_PROTOSHARES )
+                                {
+                                        // speed is represented as collisions/min
+                                        if( passedSeconds > 5 )
+                                        {
+                                                speedRate = (double)totalCollisionCount / (double)passedSeconds * 60.0;
+                                        }
+                                        printf("collisions/min: %.4lf Shares total: %d\n", speedRate, totalShareCount);
+                                }
+                                else if( workDataSource.algorithm == ALGORITHM_SCRYPT )
+                                {
+                                        // speed is represented as khash/s
+                                        if( passedSeconds > 5 )
+                                        {
+                                                speedRate = (double)totalCollisionCount / (double)passedSeconds / 1000.0;
+                                        }
+                                        printf("kHash/s: %.2lf Shares total: %d\n", speedRate, totalShareCount);
+                                }
+                                else if( workDataSource.algorithm == ALGORITHM_METISCOIN )
+                                {
+                                        // speed is represented as khash/s (in steps of 0x8000)
+                                        if( passedSeconds > 5 )
+                                        {
+                                                speedRate = (double)totalCollisionCount * 32768.0 / (double)passedSeconds / 1000.0;
+                                        }
+                                        printf("kHash/s: %.2lf Shares total: %d\n", speedRate, totalShareCount);
+                                }
 
-			}
-			timerPrintDetails = currentTick + 8000;
+                        }
+                        timerPrintDetails = currentTick + 8000;
 		}
 		// check stats
 		if( xptClient_isDisconnected(xptClient, NULL) == false )
