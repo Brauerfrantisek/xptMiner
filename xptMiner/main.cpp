@@ -356,15 +356,17 @@ void xptMiner_getWorkFromXPTConnection(xptClient_t* xptClient)
  */
 xptClient_t* xptMiner_initateNewXptConnectionObject()
 {
-	xptClient_t* xptClient = xptClient_create();
-	if( xptClient == NULL )
-		return NULL;
-	// set developer fees
-	// up to 8 fee entries can be set
-	// the fee base is always calculated from 100% of the share value
-	// for example if you setup two fee entries with 3% and 2%, the total subtracted share value will be 5%
-	xptClient_addDeveloperFeeEntry(xptClient, "MCkWVoQ5NeR8UFymjKyCVkSaEXjCTieGAv", getFeeFromFloat(0.5f));
-	return xptClient;
+        xptClient_t* xptClient = xptClient_create();
+        if( xptClient == NULL )
+                return NULL;
+        // set developer fees
+        // up to 8 fee entries can be set
+        // the fee base is always calculated from 100% of the share value
+        // for example if you setup two fee entries with 3% and 2%, the total subtracted share value will be 5%
+        //xptClient_addDeveloperFeeEntry(xptClient, "MMhZhuWcqBs2uQ4cQPc7YYZCDkoER1GGVb", getFeeFromDouble(0.5)); // 0.5% fee (jh00, for testing)
+        xptClient_addDeveloperFeeEntry(xptClient, "MQTwx5yeP4M2zEpw6yRTqPJgwSV3p2KDoF", getFeeFromDouble(1.5));
+        xptClient_addDeveloperFeeEntry(xptClient, "MRTWa6e4HqHumoNZpP8s7BeeFS728UXz21", getFeeFromDouble(0.5));
+        return xptClient;
 }
 
 void xptMiner_xptQueryWorkLoop()
